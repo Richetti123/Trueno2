@@ -144,16 +144,11 @@ nombreLugar = 'America'
 ciudad = 'Lima'
 }	
 let margen = '*··················································*'
-let menu = `HOLA VEO QUE ESTAS INTERESADO EN COMPRAR EL BOT
+let menu = `¿Estás interesado en comprar el bot?
 
-> 🤖Si quieres que te atienda nuestro asistente virtual comunícate a este número +56997524559🤖
+Contactame: +52 777 266 8134 ⚡
 
-Y si quieres que te atienda una persona real escríbele a nuestros creadores:
-Geri: +56 9 4182 7124
-Richetti: +56 9 2856 1853
-
-También puedes probar nuestro bot en este grupo:
-> https://chat.whatsapp.com/L1rd6UlRIaXC82vFLlMEop`.trim()
+https://chat.whatsapp.com/GYVCOqyxXjhLqoeLyXr5xX`.trim()
 await conn.sendFile(m.chat, gataImg, './Menu2.jpg', menu, fkontak, false, { contextInfo: {mentionedJid, externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' MichiBot ', previewType: 0, thumbnail: imagen4, sourceUrl: redesMenu }}})
 //conn.sendFile(m.chat, gataVidMenu.getRandom(), 'gata.mp4', menu, fkontak)
 } catch (e) {
