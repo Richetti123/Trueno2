@@ -2,7 +2,7 @@ import fetch from "node-fetch"
 import yts from "yt-search"
 import ytdl from 'ytdl-core'
 import axios from 'axios'
-import { yta, ytv } from '../lib/y2mate.js';
+import { ytDownload } from '../lib/y2mate.js';
 
 let handler = async (m, { conn, command, args, text, usedPrefix }) => {
 	let q, v, yt, dl_url, ttl, size, lolhuman, lolh, n, n2, n3, n4, cap, qu, currentQuality   
@@ -52,18 +52,16 @@ let handler = async (m, { conn, command, args, text, usedPrefix }) => {
 				if (command == 'play') {	
 					try {
 						let v = yt_play[0].url
-						const yt = await yta(v);
-						const ttl = await yt.title
-						size = bytesToSize(await yt.size);
-						await conn.sendMessage(m.chat, { audio: yt.buffer, mimetype: 'audio/mpeg', contextInfo: {
+						const yt = await ytDownload(v, 'audio');
+						await conn.sendMessage(m.chat, { audio: { url: yt }, mimetype: 'audio/mpeg', contextInfo: {
 							externalAdReply: {
-							title: ttl,
+							title: yt_play[0].title,
 							body: "",
 							thumbnailUrl: yt_play[0].thumbnail, 
 							mediaType: 1,
 							showAdAttribution: true,
 							renderLargerThumbnail: true
-						}}} , { quoted: m });   
+						}}} , { quoted: m });
 					} catch {
 						try {
 const dataRE = await fetch(`https://api.akuari.my.id/downloader/youtube?link=${yt_play[0].url}`)
@@ -126,10 +124,9 @@ renderLargerThumbnail: true
 		if (command == 'play2') {
 			try {
 				let v = yt_play[0].url
-				const yt = await ytv(v);
-				const ttl = await yt.title
-				size = (await yt.size); 
-				await await conn.sendMessage(m.chat, { video: yt.buffer, fileName: `${ttl}.mp4`, mimetype: 'video/mp4', caption: `╭━❰  ${wm}  ❱━⬣\n┃ 💜 ${mid.smsYT1}\n┃ ${ttl}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`, thumbnail: await fetch(yt.thumbnail) }, { quoted: m })
+				const yt = await ytDownload(v, 'video');
+				ttl = yt_play[0].title;
+				await await conn.sendMessage(m.chat, { video: { url: yt }, fileName: `${ttl}.mp4`, mimetype: 'video/mp4', caption: `╭━❰  ${wm}  ❱━⬣\n┃ 💜 ${mid.smsYT1}\n┃ ${ttl}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`, thumbnail: await fetch(yt.thumbnail) }, { quoted: m })
 } catch {   
 try {  
 let mediaa = await ytMp4(yt_play[0].url)
