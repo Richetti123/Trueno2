@@ -8,7 +8,7 @@ const handler = async (m, {command, usedPrefix, conn, text}) => {
 if (!text) throw `${mg}${mid.smsMalused4}\n*${usedPrefix + command} Alvaro Diaz - MAMI 100PRE SABE(INTERLUDE)*`
 try {
 if (command == 'play.1') {
-  conn.reply(m.chat, lenguajeGB['smsAvisoEG']() + mid.smsAud, m, { contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: wm, body: '😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}}) 
+  conn.reply(m.chat, lenguajeGB['smsAvisoEG']() + mid.smsAud, m, { contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: wm, body: wm, previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}}) 
   try { 
     const mediaa = await ytDownload(text, 'audio');
     const aa = await conn.sendMessage(m.chat, {audio: {url: mediaa }, fileName: `error.mp3`, mimetype: 'audio/mp4'}, {quoted: m});
@@ -21,7 +21,7 @@ if (command == 'play.1') {
       if (!aa_1) aa_1 = await conn.sendFile(m.chat, json.result.audio, 'error.mp3', null, m, false, {mimetype: 'audio/mp4'});
     }}
     if (command == 'play.2') {
-      conn.reply(m.chat, lenguajeGB['smsAvisoEG']() + mid.smsVid, m, {contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: wm, body: '😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}}) 
+      conn.reply(m.chat, lenguajeGB['smsAvisoEG']() + mid.smsVid, m, {contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: wm, body: wm, previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}}) 
 
       try {
         const mediaa = await ytDownload(text, 'video');
