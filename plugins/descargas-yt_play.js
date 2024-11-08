@@ -6,7 +6,7 @@ import { ytDownload } from '../lib/y2mate.js';
 
 let handler = async (m, { conn, command, args, text, usedPrefix }) => {
 	let q, v, yt, dl_url, ttl, size, lolhuman, lolh, n, n2, n3, n4, cap, qu, currentQuality   
-	if (!text) throw `${lenguajeGB['smsAvisoMG']()}${mid.smsMalused4}\n*${usedPrefix + command} Natanael Cano - Pacas verdes*`
+	if (!text) throw `${lenguajeGB['smsAvisoMG']()}${mid.smsMalused4}\n*${usedPrefix + command} Feid - De Tanto Chimbiar*`
 		try {
 			const yt_play = await search(args.join(" "))
 			let additionalText = ''
